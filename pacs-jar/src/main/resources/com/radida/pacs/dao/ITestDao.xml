@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.radida.pacs.dao.ITestDao">
+	<resultMap id="BaseResultMap" type="com.radida.pacs.pojo.TestPo">
+		<result column="id" property="id" jdbcType="VARCHAR" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Table_Name">
+		`t_test`
+	</sql>
+	<sql id="Base_Column_List">
+		id, name
+	</sql>
+
+	<select id="queryList" parameterType="string" resultMap="BaseResultMap">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM
+		<include refid="Table_Name" />
+		WHERE 1 =1
+	</select>
+	
+	<select id="query" parameterType="string" resultMap="BaseResultMap">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM
+		<include refid="Table_Name" />
+		WHERE status =1
+		<if test="name != null">
+			and `name` LIKE '%${name}%'
+		</if>
+		ORDER BY create_time  
+		LIMIT #{pageindex},#{pagesize}
+	</select>
+	<select id="queryCount" resultType="INTEGER">
+		SELECT
+		count(1)
+		FROM
+		<include refid="Table_Name" />
+		WHERE status =1
+		<if test="name != null">
+			and `name` LIKE '%${name}%'
+		</if>
+	</select>
+
+</mapper>
