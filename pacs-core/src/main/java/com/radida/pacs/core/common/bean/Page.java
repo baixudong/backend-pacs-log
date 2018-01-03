@@ -7,18 +7,24 @@ public class Page<T> implements Serializable {
 
 	private static final long serialVersionUID = -2940983877096774934L;
 
+	/** 当前页 */
+	private long pageIndex;
+	/** 当前页的起始记录 */
+	private long firstResult;
+	/** 总共记录数 */
+	private long totalResults;
+	/** 每页的数量 */
+	private int pageSize;
+	/** 总共多少页 */
+	private long totalPage;
+	/** 下一页 */
+	private long nextPage;
+	/** 上一页 */
+	private long previousPage;
+	/** 数据 */
 	private List<T> data;
 
-	private long pageIndex; // 当前页
-	private long firstResult; // 当前页的起始记录
-	private long totalResults; // 总共记录数
-	private int pageSize; // 每页的数量
-	private long totalPage; // 总共多少页
-	private long nextPage; // 下一页
-	private long previousPage; // 上一页
-
 	public Page() {
-
 	}
 
 	public Page(long pageIndex, int pageSize) {
@@ -106,11 +112,9 @@ public class Page<T> implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Page [data=" + data + ", firstResult=" + firstResult
-				+ ", nextPage=" + nextPage + ", pageIndex=" + pageIndex
-				+ ", pageSize=" + pageSize + ", previousPage=" + previousPage
-				+ ", totalPage=" + totalPage + ", totalResults=" + totalResults
-				+ "]";
+		return "Page [data=" + data + ", firstResult=" + firstResult + ", nextPage=" + nextPage + ", pageIndex="
+				+ pageIndex + ", pageSize=" + pageSize + ", previousPage=" + previousPage + ", totalPage=" + totalPage
+				+ ", totalResults=" + totalResults + "]";
 	}
 
 }

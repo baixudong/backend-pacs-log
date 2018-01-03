@@ -28,7 +28,6 @@ public class ResultHelper {
 	public static String RESULT_TOTAL = "total";
 	public static String RESULT_COUNT = "count";
 
-
 	public static boolean checkRetSuccess(ResultDto ret) {
 		if (ret == null) {
 			return false;
@@ -43,20 +42,14 @@ public class ResultHelper {
 	
 	/**
 	 * 验证参数中必填项是否有空（验证Map形式的参数）
-	 * 
-	 * @param request
-	 *            请求对象
-	 * @param paramMap
-	 *            参数
-	 * @param requiredParamNames
-	 *            必填参数数组
-	 * @param callback
-	 *            是否有callback，如果有，使用jsonp
+	 * @param request 请求对象
+	 * @param paramMap 参数
+	 * @param requiredParamNames 必填参数数组
+	 * @param callback 是否有callback，如果有，使用jsonp
 	 * @return
 	 */
 	public static Object checkParamters(HttpServletRequest request,
-			Map<?, ?> paramMap, String[] requiredParamNames, String callback,
-			Logger logger) {
+			Map<?, ?> paramMap, String[] requiredParamNames, String callback, Logger logger) {
 
 		if (requiredParamNames == null) {
 			return null;
@@ -101,16 +94,11 @@ public class ResultHelper {
 	}
 	
 	/**
-	 * @param ret
-	 *            ResultDto
-	 * @param proxyJson
-	 *            协议Map, proxy.properties中的映射关系
-	 * @param callback
-	 *            如果为"no"为json, 否则为jsonp
-	 * @param type
-	 *            1,Object 2,List 3,Page 4,Map
-	 * @param appendMap
-	 *            附加的Map，加到retMap中
+	 * @param ret ResultDto
+	 * @param proxyJson 协议Map, proxy.properties中的映射关系
+	 * @param callback 如果为"no"为json, 否则为jsonp
+	 * @param type 1,Object 2,List 3,Page 4,Map
+	 * @param appendMap 附加的Map，加到retMap中
 	 * @return
 	 */
 	public static Object procResult(HttpServletRequest request, ResultDto ret, String proxyJson, String callback,

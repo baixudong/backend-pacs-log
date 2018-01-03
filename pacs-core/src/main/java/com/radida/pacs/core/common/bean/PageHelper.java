@@ -1,6 +1,5 @@
 package com.radida.pacs.core.common.bean;
 
-
 public class PageHelper {
 
 	public static long getStartPosition(int pageIndex, int pageSize) {
@@ -8,8 +7,7 @@ public class PageHelper {
 	}
 
 	public static long getTotalPageNumber(Long totalNums, Integer pageSize) {
-		return (totalNums % pageSize == 0) ? totalNums / pageSize : totalNums
-				/ pageSize + 1;
+		return (totalNums % pageSize == 0) ? totalNums / pageSize : totalNums / pageSize + 1;
 	}
 
 	public static Page returnNullPage(Long pageIndex, Integer pageSize, Long count) {
